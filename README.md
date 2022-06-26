@@ -1,6 +1,6 @@
 # oop-code
 
-public class TamGiac {
+```public class TamGiac {
 	public static void main(String[] args) {
 		try (Scanner sc = new Scanner(System.in)) {
 			System.out.print("Nhap x, y, z: ");
@@ -47,4 +47,184 @@ public class BaiTap3 {
 			}
 		}
 	}
+}
+
+public class BaiTap4 {
+	public static void main(String[] args) {
+		try (Scanner sc = new Scanner(System.in)) {
+			int n;
+			int sum = 0;
+			do {
+				System.out.print("Nhap so nguyen duong n: ");
+				n = sc.nextInt();
+			}while(n<=0);
+			
+			System.out.println("Tong tat ca so chan trong khoang tu 0-n:");
+			for(int i = 1; i <= n; i++) {
+				if(i % 2 == 0)
+					sum += i;
+			}
+			
+			System.out.println("sum = " + sum);
+		}
+	}
+}
+
+public class BaiTap5 {
+	public static void main(String[] args) {
+		try (Scanner sc = new Scanner(System.in)) {
+			System.out.print("Nhap mot so nguyen: ");
+			int n = sc.nextInt();
+			
+			System.out.println("Phep nhan cua " + n + " voi cac so tu 1-20:");
+			for(int i = 1; i <= 20; i++) {
+				System.out.println(n + " x " + i + " = " + n*i);
+			}
+		}
+	}
+
+}
+
+public class BaiTap6 {
+	public static void main(String[] args) {
+		try (Scanner sc = new Scanner(System.in)) {
+			System.out.print("Nhap n: ");
+			int n = sc.nextInt();
+			
+			int[] arr = new int[n];
+			System.out.println("Nhap cac phan tu mang: ");
+			for(int i = 0; i < n; i++) {
+				System.out.printf("a[%d] = ", i);
+				arr[i] = sc.nextInt();
+			}
+			
+			int sum = 0;
+			for(int i = 0; i < n; i++)
+				sum += arr[i];
+			System.out.println("Gia tri trung binh mang la: " + sum/n);
+		}
+	}
+}
+
+public class BaiTap7 {
+	public static void main(String[] args) {
+		try (Scanner sc = new Scanner(System.in)) {
+			System.out.print("Nhap n: ");
+			int n = sc.nextInt();
+			
+			int[] arr = new int[n];
+			System.out.println("Nhap cac phan tu mang: ");
+			for(int i = 0; i < n; i++) {	
+				do {
+					System.out.print("a[" + i + "] = ");
+					arr[i] = sc.nextInt();
+				}while(arr[i] <= 0);
+			}
+			
+			int max = 0;
+			for(int i = 0; i < n; i++) {
+				if(arr[i] > max)
+					max=arr[i];
+			}
+			
+			System.out.println("Phan tu co gia tri lon nhat la: " + max);
+		}
+	}
+}
+
+public class BaiTap8 {
+	public static void main(String[] args) {
+		try (Scanner sc = new Scanner(System.in)) {
+			
+			System.out.print("Nhap n: ");
+			int n = sc.nextInt();
+			
+			int[] arr = new int[n];
+			System.out.println("Nhap vao cac phan tu mang so nguyen:");
+			for(int i = 0; i < n; i++) {
+				System.out.print("a[" + i + "] = ");
+				arr[i] = sc.nextInt();
+			}
+			
+			int temp;
+			for(int i = 0; i < n - 1; i++) {
+				for(int j = i + 1; j < n; j++) {
+					if(arr[i] > arr[j]) {
+						temp = arr[i];
+						arr[i] = arr[j];
+						arr[j] = temp;
+					}
+				}
+			}
+			
+			System.out.print("Sap xep tang dan: ");
+			for(int i = 0; i < n; i++) {
+				System.out.print(" " + arr[i]);
+			}
+		}
+	}
+}
+
+public class BaiTap9 {
+    public static void orderByASC(int[] arr) {
+        int temp = arr[0];
+        for (int i = 0 ; i < arr.length - 1; i++) {
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[i] > arr[j]) {
+                    temp = arr[j];
+                    arr[j] = arr[i];
+                    arr[i] = temp;
+                }
+            }
+        }
+    }
+    
+    public static int[] insert(int[] arr, int k) {
+        int arrIndex = arr.length - 1;
+        int tempIndex = arr.length;
+        int[] tempArr = new int [tempIndex + 1];
+        boolean inserted = false;
+         
+        for (int i = tempIndex; i >= 0; i--) {
+            if (arrIndex > -1 && arr[arrIndex] > k) {
+                tempArr[i] = arr[arrIndex--];
+            } else if (!inserted) {
+                    tempArr[i] = k;
+                    inserted = true;
+            } else 
+            	tempArr[i] = arr[arrIndex--];
+        }
+        return tempArr;
+    }
+    
+    public static void In(int [] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + " ");
+        }
+    }
+    
+    public static void main(String[] args) {
+    	try (Scanner sc = new Scanner(System.in)) {
+			System.out.print("Nhap n: ");
+			int n = sc.nextInt();
+			
+			int[] arr = new int [n];
+			System.out.println("Nhap cac phan tu mang:");
+			for (int i = 0; i < n; i++) {
+			    System.out.print("a[" + i + "] = ");
+			    arr[i] = sc.nextInt();
+			}
+			
+			orderByASC(arr);
+			System.out.print("Sap xep mang tang: ");
+			In(arr);
+			
+			System.out.print("\nNhap phan tu k can chen: ");
+			int k = sc.nextInt();
+			
+			System.out.print("Sap xep mang tang sau khi chen " + k + " la: ");
+			arr = insert(arr, k);
+			In(arr);
+		}
+    }
 }
