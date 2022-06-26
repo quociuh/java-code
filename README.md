@@ -1,6 +1,6 @@
 # oop-code
 
-```public class TamGiac {
+public class TamGiac {
 	public static void main(String[] args) {
 		try (Scanner sc = new Scanner(System.in)) {
 			System.out.print("Nhap x, y, z: ");
