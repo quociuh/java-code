@@ -1,5 +1,5 @@
 # oop-code
-ptivate
+
 ```public class TamGiac {
 	public static void main(String[] args) {
 		try (Scanner sc = new Scanner(System.in)) {
@@ -24,8 +24,8 @@ ptivate
 		}
 	}
 }
-
-```public class BaiTap3 {
+#in ra snt
+public class BaiTap3 {
 	public static void main(String[] args) {
 		try (Scanner sc = new Scanner(System.in)) {
 			int n;
