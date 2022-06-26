@@ -1,4 +1,4 @@
-# oop-code
+# bài tập cơ bản của cơ bản
 
 ```public class TamGiac {
 	public static void main(String[] args) {
